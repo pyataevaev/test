@@ -24,6 +24,10 @@ public class IndexController {
     @RequestMapping("/")
     public String getIndexPage() {
         LOGGER.debug("Getting home page");
+        Item saveItem = new Item();
+        saveItem.setItemId("2");
+        saveItem.setItemValue("Item test value");
+        itemRepository.save(saveItem);
         Item item = itemRepository.findOne("2");
         LOGGER.info("item with id=2: " + item.getItemValue());
         return "index";
