@@ -1,0 +1,14 @@
+version: '2'
+services:
+  app:
+    build: .
+    ports:
+    - "8080:8080"
+    depends_on:
+    - mypostgres
+  mypostgres:
+    image: ekaterinach/postgrev2
+    environment:
+      - POSTGRES_PASSWORD=123qwe
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=mydb
